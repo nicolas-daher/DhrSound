@@ -1,0 +1,25 @@
+<h1>Planos de assinatura</h1>
+
+@if (planoAtualNome(); as nome) {
+  <p class="suave">Seu plano atual: <strong style="color: var(--texto)">{{ nome }}</strong></p>
+} @else {
+  <p class="suave">Você ainda não tem um plano ativo.</p>
+}
+
+@if (mensagem()) {
+  <p style="color: var(--destaque)">{{ mensagem() }}</p>
+}
+
+@for (p of planos(); track p.id) {
+  <div class="cartao linha" style="justify-content: space-between">
+    <div>
+      <strong>{{ p.nome }}</strong> — R$ {{ p.preco.toFixed(2) }}
+      <div class="suave">{{ p.descricao }}</div>
+    </div>
+    @if (ehAtual(p)) {
+      <button class="secundario" disabled>Plano Atual</button>
+    } @else {
+      <button (click)="assinar(p)">Assinar</button>
+    }
+  </div>
+}

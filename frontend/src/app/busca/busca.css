@@ -1,0 +1,11 @@
+.fav {
+  background: var(--borda);
+  color: var(--texto);
+  transition: background 0.15s, color 0.15s;
+}
+
+.fav.favoritado {
+  background: #f5c518;
+  color: #2a2300;
+  font-weight: 700;
+}

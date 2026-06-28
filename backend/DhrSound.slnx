@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="DhrSound.Api/DhrSound.Api.csproj" />
+  <Project Path="DhrSound.Tests/DhrSound.Tests.csproj" />
+</Solution>

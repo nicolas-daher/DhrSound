@@ -1,0 +1,45 @@
+## ---------- .NET / Backend ----------
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+project.lock.json
+artifacts/
+
+# Rider / Visual Studio
+.vs/
+.idea/
+
+# User Secrets (mantém segredos fora do repo)
+secrets.json
+
+# Banco local
+*.mdf
+*.ldf
+
+## ---------- Angular / Frontend ----------
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/tmp/
+frontend/out-tsc/
+frontend/coverage/
+
+# Logs e caches de npm
+npm-debug.log*
+yarn-error.log*
+.npm/
+.eslintcache
+
+## ---------- Geral ----------
+node_modules/
+*.log
+.env
+.env.*
+.DS_Store
+Thumbs.db
+*.tmp

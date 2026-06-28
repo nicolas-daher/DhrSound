@@ -1,0 +1,14 @@
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 20px;
+  background: var(--painel);
+  border-bottom: 1px solid var(--borda);
+}
+.marca { font-weight: 700; font-size: 18px; color: var(--destaque); }
+.topo nav { display: flex; gap: 16px; }
+.topo nav a, .usuario a { color: var(--suave); }
+.topo nav a.ativo, .usuario a.ativo { color: var(--texto); }
+.usuario { margin-left: auto; display: flex; gap: 12px; align-items: center; }
+.usuario button { padding: 6px 12px; }

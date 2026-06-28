@@ -1,0 +1,23 @@
+<header class="topo">
+  <a class="marca" routerLink="/busca">DhrSound</a>
+  <nav>
+    <a routerLink="/busca" routerLinkActive="ativo">Busca</a>
+    @if (auth.autenticado()) {
+      <a routerLink="/planos" routerLinkActive="ativo">Planos</a>
+      <a routerLink="/favoritos" routerLinkActive="ativo">Favoritos</a>
+    }
+  </nav>
+  <div class="usuario">
+    @if (auth.autenticado()) {
+      <span>Olá, {{ auth.nome() }}</span>
+      <button (click)="sair()">Sair</button>
+    } @else {
+      <a routerLink="/login" routerLinkActive="ativo">Entrar</a>
+      <a routerLink="/cadastro" routerLinkActive="ativo">Cadastrar</a>
+    }
+  </div>
+</header>
+
+<main>
+  <router-outlet />
+</main>

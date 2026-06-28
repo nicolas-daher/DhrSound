@@ -1,0 +1,14 @@
+<h1>Entrar</h1>
+<div class="cartao" style="max-width: 400px">
+  <form (ngSubmit)="entrar()">
+    <p><input name="email" type="email" placeholder="E-mail" [(ngModel)]="email" required /></p>
+    <p><input name="senha" type="password" placeholder="Senha" [(ngModel)]="senha" required /></p>
+    @if (erro()) {
+      <p class="erro">{{ erro() }}</p>
+    }
+    <button type="submit" [disabled]="carregando()">Entrar</button>
+  </form>
+  <p class="suave" style="margin-top: 16px">
+    Não tem conta? <a routerLink="/cadastro">Cadastre-se</a>
+  </p>
+</div>

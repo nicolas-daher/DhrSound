@@ -1,0 +1,15 @@
+<h1>Criar conta</h1>
+<div class="cartao" style="max-width: 400px">
+  <form (ngSubmit)="cadastrar()">
+    <p><input name="nome" placeholder="Nome" [(ngModel)]="nome" required /></p>
+    <p><input name="email" type="email" placeholder="E-mail" [(ngModel)]="email" required /></p>
+    <p><input name="senha" type="password" placeholder="Senha (mín. 6)" [(ngModel)]="senha" required /></p>
+    @if (erro()) {
+      <p class="erro">{{ erro() }}</p>
+    }
+    <button type="submit" [disabled]="carregando()">Cadastrar</button>
+  </form>
+  <p class="suave" style="margin-top: 16px">
+    Já tem conta? <a routerLink="/login">Entrar</a>
+  </p>
+</div>

@@ -1,0 +1,62 @@
+<h1>Buscar músicas e bandas</h1>
+
+<div class="linha" style="margin-bottom: 20px">
+  <input
+    name="termo"
+    placeholder="Filtrar por banda ou música..."
+    [(ngModel)]="termo"
+    (keyup.enter)="buscar()"
+  />
+  <button (click)="buscar()">Filtrar</button>
+  @if (termo) {
+    <button class="secundario" (click)="limparFiltro()">Limpar</button>
+  }
+</div>
+
+@if (resultado(); as r) {
+  <h2>Bandas</h2>
+  @if (r.bandas.length === 0) {
+    <p class="suave">Nenhuma banda encontrada.</p>
+  }
+  @for (b of r.bandas; track b.id) {
+    <div class="cartao linha" style="justify-content: space-between">
+      <div>
+        <strong>{{ b.nome }}</strong>
+        <div class="suave">{{ b.descricao }}</div>
+      </div>
+      @if (auth.autenticado()) {
+        <button
+          class="fav"
+          [class.favoritado]="bandaFavoritada(b.id)"
+          (click)="alternarBanda(b.id)"
+        >
+          {{ bandaFavoritada(b.id) ? '★ Favoritado' : '☆ Favoritar' }}
+        </button>
+      }
+    </div>
+  }
+
+  <h2>Músicas</h2>
+  @if (r.musicas.length === 0) {
+    <p class="suave">Nenhuma música encontrada.</p>
+  }
+  @for (m of r.musicas; track m.id) {
+    <div class="cartao linha" style="justify-content: space-between">
+      <div>
+        <strong>{{ m.titulo }}</strong>
+        <div class="suave">{{ m.bandaNome }} · {{ m.duracaoSegundos }}s</div>
+      </div>
+      @if (auth.autenticado()) {
+        <button
+          class="fav"
+          [class.favoritado]="musicaFavoritada(m.id)"
+          (click)="alternarMusica(m.id)"
+        >
+          {{ musicaFavoritada(m.id) ? '★ Favoritado' : '☆ Favoritar' }}
+        </button>
+      }
+    </div>
+  }
+} @else if (buscou()) {
+  <p class="suave">Nada encontrado.</p>
+}

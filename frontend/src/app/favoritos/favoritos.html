@@ -1,0 +1,31 @@
+<h1>Meus favoritos</h1>
+
+@if (dados(); as d) {
+  <h2>Bandas</h2>
+  @if (d.bandas.length === 0) {
+    <p class="suave">Nenhuma banda favoritada.</p>
+  }
+  @for (b of d.bandas; track b.id) {
+    <div class="cartao linha" style="justify-content: space-between">
+      <div>
+        <strong>{{ b.nome }}</strong>
+        <div class="suave">{{ b.descricao }}</div>
+      </div>
+      <button class="secundario" (click)="removerBanda(b.id)">Remover</button>
+    </div>
+  }
+
+  <h2>Músicas</h2>
+  @if (d.musicas.length === 0) {
+    <p class="suave">Nenhuma música favoritada.</p>
+  }
+  @for (m of d.musicas; track m.id) {
+    <div class="cartao linha" style="justify-content: space-between">
+      <div>
+        <strong>{{ m.titulo }}</strong>
+        <div class="suave">{{ m.bandaNome }} · {{ m.duracaoSegundos }}s</div>
+      </div>
+      <button class="secundario" (click)="removerMusica(m.id)">Remover</button>
+    </div>
+  }
+}
